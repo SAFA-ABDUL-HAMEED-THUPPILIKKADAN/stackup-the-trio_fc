@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+ 
+ {% load static %}
+ 
+ 
+ 
+ 
+    {% block head %}
+    <title>Product Listings</title>
+    <!--<link rel="stylesheet" href="{% static "css/style.css" %}">-->
+    
+    {% endblock head %}
+    
+{% block content %}
+<h2 class="text-3xl p-10 font-bold">Product Listings</h2>
+    <ul>
+        {% for product in products %}
+        <li>
+            
+            
+            <a href="{% url "products:details" product.id  %}">{{product.name}}-{{product.price}}</a>
+            <img src="/uploads/{{product.image}}" width="30" height="30" alt="image">
+        </li>
+            
+        {% endfor %}
+    </ul>
+    <a href="/products/create/">Add new product</a>
+    
+
+{% endblock content %}
+
+
+   

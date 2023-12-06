@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+{% block head %}
+<title>Products</title>
+{% endblock head %}
+
+
+{% block content %}
+<h1>Available Products</h1>
+<a href="{% url "products:create" %}">New Product</a>
+
+<p>Logged in as:{{request.user}}</p>
+<a href="/auth/logout/">Logout</a>
+<hr>
+
+{% for product in products %}
+<li><a href="{% url "products:details" product.id %}">{{product.name}}</a></li>
+
+
+{% endfor %}
+
+{% endblock content %}
