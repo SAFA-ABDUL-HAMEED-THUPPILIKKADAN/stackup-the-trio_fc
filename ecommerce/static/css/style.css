@@ -1,64 +1,73 @@
 /* Reset some default styles */
-body, h1, h2, h3, p, ul, li {
+/* Reset some default styles */
+body, h1, h2, h3, ul, p {
     margin: 0;
     padding: 0;
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
+    background: linear-gradient(30deg, #000, #fff, #000); /* Black and white honeycomb gradient */
+    color: white; /* White text color */
+    font-family: Arial, sans-serif;
 }
 
-/* Container styling */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+    max-width: 500px;
+    margin: 30px;
 }
 
-/* Header styling */
-h2 {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
+/* Rest of your styles remain unchanged */
 
-/* Product list styling */
+
+/* Rest of your styles remain unchanged */
+
+
+/* Style for the product listings */
 ul {
     list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 li {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Drop shadow */
     margin-bottom: 20px;
+    overflow: hidden;
+    width: calc(50% - 20px); /* Two items per row with some spacing */
 }
 
-/* Link styling */
 a {
     text-decoration: none;
-    color: #3498db;
-    transition: color 0.3s ease-in-out;
+    color: inherit;
+    display: block;
+    padding: 10px;
 }
 
-a:hover {
-    color: #2980b9;
-}
-
-/* Image styling */
 img {
-    border-radius: 50%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
-/* Add new product link styling */
-.add-product-link {
-    display: inline-block;
-    padding: 10px 15px;
-    background-color: #3498db;
-    color: #fff;
+/* Style for the "Add new product" link */
+a.add-product {
+    display: block;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px;
     text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease-in-out;
+    border-radius: 8px;
+    margin-top: 20px;
 }
 
-.add-product-link:hover {
-    background-color: #2980b9;
+/* Responsive styles */
+@media (max-width: 600px) {
+    li {
+        width: calc(100% - 20px); /* Single column on small screens */
+    }
 }
