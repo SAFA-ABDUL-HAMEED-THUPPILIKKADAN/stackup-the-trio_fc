@@ -1,3 +1,64 @@
-body{
-    background-color: azure;
+/* Reset some default styles */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+}
+
+/* Container styling */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header styling */
+h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Product list styling */
+ul {
+    list-style: none;
+}
+
+li {
+    margin-bottom: 20px;
+}
+
+/* Link styling */
+a {
+    text-decoration: none;
+    color: #3498db;
+    transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+    color: #2980b9;
+}
+
+/* Image styling */
+img {
+    border-radius: 50%;
+}
+
+/* Add new product link styling */
+.add-product-link {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.add-product-link:hover {
+    background-color: #2980b9;
 }
