@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+
+
+{% block head %}
+<title>Add Product</title>
+<script src="https://cdn.tailwindcss.com"></script>
+
+{% endblock head %}
+
+
+{% block content %}
+<h1>Add Product</h1>
+    <a href="{% url "products:list"  %}">Back</a>
+    <hr>
+    
+    <form method="post" enctype="multipart/form-data" class="container m-10">
+        {% csrf_token %}
+        {{form|crispy}}
+
+        <input type="submit" value="Add" class="rounded bg-blue-500 px-4 py-2 text-white">
+    </form>
+    
+{% endblock content %}

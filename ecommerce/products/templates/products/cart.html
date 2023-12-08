@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block head %}
+<title>Your Cart</title>
+<link rel="stylesheet" href="{% static "css/style4.css" %}">
+
+
+{% endblock head %}
+
+{% block content %}
+<h2>Your Cart</h2>
+    <ul>
+        {% for product in products %}
+            <h4><li>{{ product.name }} - ${{ product.price }}</li>
+        <img src="/uploads/{{product.image}}" width="30" height="30" alt="image">    
+        <a href="{% url 'products:remove_from_cart' product.id %}">Remove</a></h4>
+        {% endfor %}
+    </ul>
+    <p>Total: ${{ total_price|floatformat:2 }}</p>
+    <a href="/products/">Back</a>
+{% endblock content %}
