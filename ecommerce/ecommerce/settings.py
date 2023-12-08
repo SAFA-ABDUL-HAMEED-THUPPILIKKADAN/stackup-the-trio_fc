@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
+    'crispy_tailwind',
+    
     'products',
     'categories',
     'sign_up'
@@ -135,6 +138,7 @@ LOGIN_REDIRECT_URL='/products/'
 LOGOUT_REDIRECT_URL='/auth/login/'
 LOGIN_URL='/auth/login/'
 
+
 STATIC_URL="static/"
 
 STATIC_ROOT="/static/"
@@ -145,3 +149,5 @@ STATICFILES_DIRS = [
 
 MEDIA_URL='/uploads/'
 MEDIA_ROOT=BASE_DIR/'uploads'
+
+CRISPY_TEMPLATE_PACK = 'tailwind'

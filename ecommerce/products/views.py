@@ -3,6 +3,7 @@ from .models import Product,Cart
 from .forms import CreateProductForm,UpdateProductForm
 from django.contrib.auth.decorators import login_required,user_passes_test
 from django.contrib import messages
+from categories.models import Category
 
 
 @login_required
@@ -29,7 +30,7 @@ def create(request):
             created_product=form.save(commit=False)
             created_product.user=request.user
             created_product.save()
-            return redirect('/products/')  
+            return redirect('/')  
 
     form=CreateProductForm()    
     context={'form':form}
@@ -39,7 +40,7 @@ def create(request):
 def delete(request,id):
     product=Product.objects.get(id=id)
     product.delete()
-    return redirect('/products/')  
+    return redirect('/')  
 
 @login_required
 def update(request,id):
@@ -49,7 +50,7 @@ def update(request,id):
         form=CreateProductForm(request.POST,instance=product)
         if form.is_valid():
             form.save()
-            return redirect(f'/products/{product.id}')
+            return redirect('/')
     form=UpdateProductForm(instance=product)
 
     context={'product':product,'form':form}
@@ -57,10 +58,15 @@ def update(request,id):
     return render(request,'products/update.html',context)
     
 
-@login_required
+
+
+
+
 def product_list(request):
     products = Product.objects.all()
     return render(request, 'products/product_list.html', {'products': products})
+    
+
     
 
 @login_required

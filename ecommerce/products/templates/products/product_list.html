@@ -8,23 +8,60 @@
     {% block head %}
     <title>Product Listings</title>
     <link rel="stylesheet" href="{% static "css/style.css" %}">
-    
+    <script src="https://cdn.tailwindcss.com"></script>
+
     {% endblock head %}
     
 {% block content %}
-<h2 class="text-3xl p-10 font-bold">Product Listings</h2>
-    <ul>
+
+<header class="text-gray-600 body-font">
+    <div class="container mx-auto mt-6 flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-blue-500 rounded-full" viewBox="0 0 24 24">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+        </svg>
+        <span class="ml-3 text-3xl font-lg font-mono">ShopSphere</span>
+      </a>
+      <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+        <a class="mr-6 mt-50px text-xl font-normal" href="/create/" >Add Product</a>
+        <a class="mr-6 text-xl font-normal" href="/auth/logout/" >Logout</a>
+
+        <p class="mr-6 hover:text-gray-900 pt-25 text-xl font-normal">Logged in as : {{request.user}}</p>
+        <a class="mr-6 hover:text-gray-900 text-xl font-normal" href="/auth/login/">Login</a>
+        
+      </nav>
+      <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">View Cart
+        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+          <path d="M5 12h14M12 5l7 7-7 7"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+<h2 class="text-2xl p-8 ml-20 text-5xl font-normal  ">Trending Now</h2>
+
+<section class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-wrap -m-4">
+
+
+    
         {% for product in products %}
-        <li>
-            
-            
-            <a href="{% url "products:details" product.id  %}">{{product.name}}-{{product.price}}</a>
-            <img src="/uploads/{{product.image}}" width="30" height="30" alt="image">
-        </li>
+        
+        <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+            <a class="block relative h-48 rounded overflow-hidden" href="{% url "products:details" product.id  %}">
+              <img alt="ecommerce" class="object-cover object-center w-full h-full hover:opacity-75 " src="/uploads/{{product.image}}">
+            </a>
+            <div class="mt-4">
+              <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{product.category}}</h3>
+              <h2 class="text-gray-900 title-font text-lg font-medium">{{product.name}}</h2>
+              <p class="mt-1">₹{{product.price}}</p>
+            </div>
+          </div>
+        
             
         {% endfor %}
-    </ul>
-    <a href="/products/create/">Add new product</a>
+    
+    <!--<a href="/products/create/">Add new product</a>-->
     
 
 {% endblock content %}
